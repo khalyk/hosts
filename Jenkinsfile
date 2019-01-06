@@ -2,6 +2,7 @@ pipeline {
   agent {
     docker {
       image 'khalyk/sb-hosts:latest'
+      args '-u root'
     }
 
   }
