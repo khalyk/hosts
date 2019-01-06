@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Run') {
       steps {
-        sh "python3 /app/hosts/updateHostsFile.py --auto --extensions social porn fakenews gambling --compress"
+        sh "python3 /app/hosts/updateHostsFile.py --auto --extensions social porn fakenews gambling -i 127.0.0.1 --minimise"
 	sh "cp /app/hosts/hosts ${WORKSPACE}"
       }
     }
