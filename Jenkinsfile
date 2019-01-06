@@ -2,7 +2,6 @@ pipeline {
   agent {
     docker {
       image 'khalyk/sb-hosts:latest'
-      args '-u root'
     }
 
   }
@@ -10,6 +9,7 @@ pipeline {
     stage('Run') {
       steps {
         sh "python3 /app/hosts/updateHostsFile.py --auto --extensions social porn fakenews gambling --compress"
+	sh "cp /app/hosts/hosts ${WORKSPACE}"
       }
     }
   }
