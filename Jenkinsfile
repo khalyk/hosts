@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Run') {
       steps {
-        sh "python3 /app/hosts/updateHostsFile.py --auto --extensions social porn fakenews gambling --compress -o hosts.txt"
+        sh "python3 /app/hosts/updateHostsFile.py --auto --extensions social porn fakenews gambling --compress""
       }
     }
   }
@@ -21,7 +21,7 @@ pipeline {
   
   post {
     always {
-      archiveArtifacts artifacts: 'hosts.txt', fingerprint: true
+      archiveArtifacts artifacts: 'hosts', fingerprint: true
     }
   }
 }
