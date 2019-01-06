@@ -6,14 +6,17 @@ pipeline {
 
   }
   stages {
-    stage('Test') {
+    stage('Run') {
       steps {
-        echo 'Hello World!'
+        sh "python3 hosts/updateHostsFile.py --auto --extensions social porn fakenews gambling --compress -o hosts.txt"
       }
     }
   }
   environment {
     LC_ALL = 'C.UTF-8'
     LANG = 'C.UTF-8'
+  }
+  post {
+    archiveArtifacts artifacts: 'hosts.txt', fingerprint: true
   }
 }
