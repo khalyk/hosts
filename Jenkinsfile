@@ -12,11 +12,15 @@ pipeline {
       }
     }
   }
+  
   environment {
     LC_ALL = 'C.UTF-8'
     LANG = 'C.UTF-8'
   }
+  
   post {
-    archiveArtifacts artifacts: 'hosts.txt', fingerprint: true
+    always {
+      archiveArtifacts artifacts: 'hosts.txt', fingerprint: true
+    }
   }
 }
