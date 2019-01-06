@@ -24,7 +24,7 @@ pipeline {
       archiveArtifacts artifacts: 'hosts', fingerprint: true
       withAWS(region:'us-west-2', credentials:'s3-kh-hosts') {
         s3Upload(
-	  file: 'hosts.txt'
+	  file: 'hosts.txt',
           bucket: 'kh-hosts', 
           includePathPattern: 'hosts'
         )
