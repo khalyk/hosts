@@ -21,9 +21,13 @@ pipeline {
   
   post {
     always {
-      //archiveArtifacts artifacts: 'hosts', fingerprint: true
+      archiveArtifacts artifacts: 'hosts', fingerprint: true
       withAWS(region:'us-west-2', credentials:'s3-kh-hosts') {
-        s3Upload(bucket:"kh-hosts", includePathPattern:'hosts');
+        s3Upload(
+	  file: 'hosts.txt'
+          bucket: 'kh-hosts', 
+          includePathPattern: 'hosts'
+        )
       }
     }
   }
