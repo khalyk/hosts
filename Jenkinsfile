@@ -1,10 +1,19 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'khalyk/sb-hosts:latest'
+    }
+
+  }
   stages {
-    stage('Checkout') {
+    stage('Test') {
       steps {
-        git(url: 'https://github.com/StevenBlack/hosts.git', branch: 'master', poll: true)
+        echo 'Hello World!'
       }
     }
+  }
+  environment {
+    LC_ALL = 'C.UTF-8'
+    LANG = 'C.UTF-8'
   }
 }
