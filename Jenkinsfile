@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Run') {
       steps {
-        sh "python3 /app/hosts/updateHostsFile.py --auto --extensions social porn fakenews gambling --compress""
+        sh "python3 /app/hosts/updateHostsFile.py --auto --extensions social porn fakenews gambling --compress"
       }
     }
   }
