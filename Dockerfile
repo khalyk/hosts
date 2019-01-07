@@ -13,7 +13,7 @@ FROM python:3-alpine
 #RUN mkdir /opt/hosts
 COPY hosts /opt/hosts
 
-RUN apk add --update gcc libxml2
+RUN apk add --update gcc libxml2-dev
 
 # Install required packages specified in requirements.txt
 RUN pip3 install --user -r /opt/hosts/requirements.txt
