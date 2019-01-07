@@ -10,8 +10,8 @@ FROM python:3-alpine
 
 # Get latest Steven Black hosts from git
 #RUN git clone https://github.com/StevenBlack/hosts.git
-
-COPY hosts /opt/hosts
+#RUN mkdir /opt/hosts
+COPY hosts /opt/
 
 # Install required packages specified in requirements.txt
 RUN pip3 install --user -r /opt/hosts/requirements.txt
