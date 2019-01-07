@@ -1,5 +1,6 @@
 #FROM ubuntu
-FROM frolvlad/alpine-python3
+#FROM frolvlad/alpine-python3
+FROM python:3-alpine
 
 # Set the working directory to /app
 WORKDIR /app
@@ -10,7 +11,7 @@ WORKDIR /app
 # Get latest Steven Black hosts from git
 #RUN git clone https://github.com/StevenBlack/hosts.git
 
-COPY hosts /app/hosts
+COPY hosts hosts
 
 # Install required packages specified in requirements.txt
 RUN pip3 install --user -r /app/hosts/requirements.txt
