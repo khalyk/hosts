@@ -13,7 +13,7 @@ FROM python:3-alpine
 #RUN mkdir /opt/hosts
 COPY hosts /opt/hosts
 
-RUN apk add --update build-base libxml2-dev 
+RUN apk add --update build-base libxml2-dev libxslt-dev
 
 # Install required packages specified in requirements.txt
 RUN pip3 install --user -r /opt/hosts/requirements.txt
