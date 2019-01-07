@@ -10,7 +10,7 @@ WORKDIR /app
 # Get latest Steven Black hosts from git
 #RUN git clone https://github.com/StevenBlack/hosts.git
 
-COPY ../StevenBlack/hosts /app/hosts
+COPY hosts /app/hosts
 
 # Install required packages specified in requirements.txt
 RUN pip3 install --user -r /app/hosts/requirements.txt
